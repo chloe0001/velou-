@@ -14,3 +14,5 @@ Along with the report, you are expected to provide a demo of an example database
 
 Documented scripts to load and manipulate example data that demonstrates the choices made for the ETL pipeline.
 The data used in the demo does not need to be exhaustive, but it should be sufficient to illustrate the key decisions in the ETL process.
+coucou c'est moi 
+
