@@ -44,5 +44,3 @@ mainStands indique la capacité physique de la station
 overflowStands indique la capacité overflow de la station
 availabilities indique le nombre de place disponibles et le nombre de vélos accrochés par types de vélos
 lastUpdate timestamp indiquant le moment de la dernière mise à jour
-
-Je test les push
