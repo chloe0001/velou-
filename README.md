@@ -44,3 +44,10 @@ mainStands indique la capacité physique de la station
 overflowStands indique la capacité overflow de la station
 availabilities indique le nombre de place disponibles et le nombre de vélos accrochés par types de vélos
 lastUpdate timestamp indiquant le moment de la dernière mise à jour
+
+
+Pour planifier une tache récurrente on va utiliser crontab. Cf message SLACK de christophe -> pour Typiquement, planifier une tâche qui se lance à chaque heure à 15 minutes, ça s'écrit:
+15 * * * * 
+
+ici : je vais dans conda puis velou. J'ai rendu mon script executable (avec la première ligne et le chmo +xà et maintenant je oeux faire crontab -e puis écrire : 15 * * * * python api_JCdecaux.py dans le vim qui s'ouvre. Puis apparemment faut accepter et la c'ezst bon ça executera toutes les 15min. 
+vérifier les taches : faire crontab -l  
