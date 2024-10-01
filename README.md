@@ -1,6 +1,6 @@
 This project is detailed in the ETL class.
 
-You are part of a 4-person data engineering team at a startup, tasked with designing and implementing an ETL/ELT pipeline. Your assignment is to submit a 2-4 page report detailing the choices made for the ETL/ELT pipeline and to provide a demo of an example database.
+You are part of a 4-person data engineering team at a startup, tasked with designing and implementing an ELT pipeline. Your assignment is to submit a 2-4 page report detailing the choices made for the ELT pipeline and to provide a demo of an example database.
 
 In your report, you need to clearly explain and justify your decisions for each phase of the pipeline:
 
@@ -10,7 +10,7 @@ Transform (T): Explain how the data is being transformed. Describe the processes
 
 Load (L): Detail how the data is loaded into the system, how it is stored, and how it will be used or queried. Discuss the database or storage options chosen, and explain how the data will be utilized by the organization or application.
 
-Along with the report, you are expected to provide a demo of an example database. You can use PostgreSQL, MongoDB, or another database system of your choice. The demo should include:
+Along with the report, you are expected to provide a demo of an example database. You can use PostgreSQL or another database system of your choice. The demo should include:
 
 Documented scripts to load and manipulate example data that demonstrates the choices made for the ETL pipeline.
 The data used in the demo does not need to be exhaustive, but it should be sufficient to illustrate the key decisions in the ETL process.
