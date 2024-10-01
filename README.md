@@ -16,3 +16,31 @@ Documented scripts to load and manipulate example data that demonstrates the cho
 The data used in the demo does not need to be exhaustive, but it should be sufficient to illustrate the key decisions in the ETL process.
 coucou c'est moi 
 
+
+On est deux types de données : les données statiques (fichier JSON) avec les caractéristiques des stations et les données temps-réel qui prennent en compte le remplissage des stations. 
+
+ELT : car mise à jour des données temps-réel 
+
+
+
+données statiques : 
+number le numéro de la station. Attention, ce n'est pas un id, ce numéro n'est unique qu'au sein d'un contrat
+contractName le nom du contrat de cette station
+name le nom de la station
+address adresse indicative de la station, les données étant brutes, parfois il s'agit plus d'un commentaire que d'une adresse.
+position les coordonnées au format WGS84
+banking indique la présence d'un terminal de paiement
+bonus indique s'il s'agit d'une station bonus
+overflow indique si la station accepte le repose de vélos en overflow
+shape non utilisé pour l'instant
+
+
+Données dynamiques
+
+status indique l'état de la station, peut être CLOSED ou OPEN
+connected indique si la station est connectée au système central
+totalStands indique la capacité totale de la station
+mainStands indique la capacité physique de la station
+overflowStands indique la capacité overflow de la station
+availabilities indique le nombre de place disponibles et le nombre de vélos accrochés par types de vélos
+lastUpdate timestamp indiquant le moment de la dernière mise à jour
