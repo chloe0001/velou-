@@ -44,3 +44,9 @@ mainStands indique la capacité physique de la station
 overflowStands indique la capacité overflow de la station
 availabilities indique le nombre de place disponibles et le nombre de vélos accrochés par types de vélos
 lastUpdate timestamp indiquant le moment de la dernière mise à jour
+ajout du numéro de la station qui sert donc de clé entre les 2 tables
+
+BDD 
+
+Passage des .json créés en BDD PostgreSQL à l'aide de python et de l'outil psycopg2.
+La BDD est divisée en 2 tables: "stations" (statique) et "dynamic_data" (dynamique).
