@@ -15,6 +15,7 @@ def get_dynamic_only_data(api_key, contract_name):
         
         for station in dynamic_data:
             filtered_station = {
+                "number" : station["number"],
                 "bike_stands": station["bike_stands"],
                 "available_bike_stands": station["available_bike_stands"],
                 "available_bikes": station["available_bikes"],
