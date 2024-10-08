@@ -19,14 +19,6 @@ def update_dynamic_data_velou_bd():
     # Créer un curseur pour exécuter des commandes SQL
     cur = conn.cursor()
 
-    
-    cur.execute("""
-        DROP TABLE IF EXISTS dynamic_datas;
-    """)
-
-    conn.commit()
-
-
     cur.execute("""
         CREATE TABLE IF NOT EXISTS dynamic_datas (
             number INT,
@@ -46,16 +38,18 @@ def update_dynamic_data_velou_bd():
             time = 'Invalid'
         else:
             time = datetime.fromtimestamp(ts/1000).strftime('%Y-%m-%d %H:%M:%S')
-            
-        cur.execute("""
-            INSERT INTO dynamic_datas ( number, bike_stands, available_bike_stands, available_bikes, status, last_update)
-            VALUES ( %s, %s, %s, %s, %s, %s)
-        """, ( record['number'], record['bike_stands'], record['available_bike_stands'], record['available_bikes'], record['status'], time))
 
+        cur.execute("""SELECT COUNT(*) FROM dynamic_datas WHERE number = %s AND last_update = %s """, (record['number'] , time))
+
+        exists = cur.fetchone()
+
+        if (exists[0] == 0):
+            cur.execute("""
+                INSERT INTO dynamic_datas ( number, bike_stands, available_bike_stands, available_bikes, status, last_update)
+                VALUES (%s, %s, %s, %s, %s, %s) 
+            """, ( record['number'], record['bike_stands'], record['available_bike_stands'], record['available_bikes'], record['status'], time))
     conn.commit()  # Valider les insertions
 
     cur.close()
     conn.close()
     return
-
-update_dynamic_data_velou_bd()

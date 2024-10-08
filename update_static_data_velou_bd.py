@@ -18,14 +18,11 @@ def update_static_data_velou_bd():
     # Créer un curseur pour exécuter des commandes SQL
     cur = conn.cursor()
 
-    cur.execute("""
-        DROP TABLE IF EXISTS stations;
-    """)
 
     conn.commit()
 
     cur.execute("""
-        CREATE TABLE stations (
+        CREATE TABLE IF NOT EXISTS stations (
             number INT,
             name TEXT,
             address TEXT,
@@ -48,4 +45,3 @@ def update_static_data_velou_bd():
     conn.close()
     return
 
-update_static_data_velou_bd()

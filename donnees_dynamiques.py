@@ -36,7 +36,6 @@ def get_dynamic_only_data(api_key, contract_name):
         return None
 
 
-get_dynamic_only_data('c0796b53b9a70237cb401518444ba6078ddc107b', 'Toulouse')
 
 
 
