@@ -1,3 +1,16 @@
+# Projet Velou - Avrit, Prost, Revelli et Weydert
+
+L'objectif est de prédire les tendances de remplissage des stations de VélÔ Toulouse. Pour ce faire, nous avons conçu et mis en place un pipeline ELT qui extrait les données de JCDecaux (données statiques et dynamiques) puis stocké ces données dans deux bases de données. 
+Nous avont utilisé crontab pour récupérer les données dynamiques toutes les 15min et nous avons choisi PostgreSQL pour le stockage de notre base de données. 
+
+Nous n'avons pas codé explicitement la transformation des données mais l'idée générale est expliquée dans le Compte Rendu
+
+
+
+
+
+
+
 This project is detailed in the ETL class.
 
 You are part of a 4-person data engineering team at a startup, tasked with designing and implementing an ELT pipeline. Your assignment is to submit a 2-4 page report detailing the choices made for the ELT pipeline and to provide a demo of an example database.
@@ -14,7 +27,7 @@ Along with the report, you are expected to provide a demo of an example database
 
 Documented scripts to load and manipulate example data that demonstrates the choices made for the ETL pipeline.
 The data used in the demo does not need to be exhaustive, but it should be sufficient to illustrate the key decisions in the ETL process.
-coucou c'est moi 
+
 
 
 On est deux types de données : les données statiques (fichier JSON) avec les caractéristiques des stations et les données temps-réel qui prennent en compte le remplissage des stations. 
