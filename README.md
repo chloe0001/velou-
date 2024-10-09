@@ -44,9 +44,15 @@ mainStands indique la capacité physique de la station
 overflowStands indique la capacité overflow de la station
 availabilities indique le nombre de place disponibles et le nombre de vélos accrochés par types de vélos
 lastUpdate timestamp indiquant le moment de la dernière mise à jour
-ajout du numéro de la station qui sert donc de clé entre les 2 tables
 
 BDD 
 
 Passage des .json créés en BDD PostgreSQL à l'aide de python et de l'outil psycopg2.
 La BDD est divisée en 2 tables: "stations" (statique) et "dynamic_data" (dynamique).
+
+
+Pour planifier une tache récurrente on va utiliser crontab. Cf message SLACK de christophe -> pour Typiquement, planifier une tâche qui se lance à chaque heure à 15 minutes, ça s'écrit:
+15 * * * * 
+
+ici : je vais dans conda puis velou. J'ai rendu mon script executable (avec la première ligne et le chmo +xà et maintenant je oeux faire crontab -e puis écrire : 15 * * * * python api_JCdecaux.py dans le vim qui s'ouvre. Puis apparemment faut accepter et la c'ezst bon ça executera toutes les 15min. 
+vérifier les taches : faire crontab -l  
