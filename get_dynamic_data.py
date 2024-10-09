@@ -2,13 +2,13 @@
 Si la requète est réussie, les données sont stockées dans un fichier JSON
 """
 
+
 import requests
 import json
 
-# API URL
 DYNAMIC_DATA_URL = "https://api.jcdecaux.com/vls/v1/stations?contract={contract_name}&apiKey={api_key}"
 
-def get_dynamic_data(contract_name, api_key):
+def get_dynamic_only_data(api_key, contract_name):
     """Args : 
             contract_name (str) : Ville où l'on souhaite récupérer les données
             api_key (str) : clé d'API
@@ -19,15 +19,32 @@ def get_dynamic_data(contract_name, api_key):
     response = requests.get(url)
     if response.status_code == 200:
         dynamic_data = response.json()
+        
+        filtered_data = []
+        
+        for station in dynamic_data:
+            filtered_station = {
+                "number" : station["number"],
+                "bike_stands": station["bike_stands"],
+                "available_bike_stands": station["available_bike_stands"],
+                "available_bikes": station["available_bikes"],
+                "status": station["status"],
+                "last_update": station["last_update"]
+            }
+            filtered_data.append(filtered_station)
+
       # Sauvegarder les données dans un fichier JSON
-        with open('data.json', 'w', encoding='utf-8') as f:
-            json.dump(dynamic_data, f, ensure_ascii=False, indent=4)
-        print("Données enregistrées dans le fichier 'data.json'.")
+        with open('dynamic_data.json', 'w', encoding='utf-8') as f:
+            json.dump(filtered_data, f, ensure_ascii=False, indent=4)
+        
+        print("Données enregistrées dans le fichier 'dynamic_data.json'.")
         print("Données dynamiques récupérées avec succès.")
-        return dynamic_data
+        return filtered_data
     else:
         print(f"Erreur lors de la récupération des données dynamiques: {response.status_code}")
         return None
 
-# Pour le projet Véloù, ce sont les données des stations toulousaines qui nous intérèsse. 
-get_dynamic_data('Toulouse','c0796b53b9a70237cb401518444ba6078ddc107b')
+
+
+
+
