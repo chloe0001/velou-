@@ -45,6 +45,11 @@ overflowStands indique la capacité overflow de la station
 availabilities indique le nombre de place disponibles et le nombre de vélos accrochés par types de vélos
 lastUpdate timestamp indiquant le moment de la dernière mise à jour
 
+BDD 
+
+Passage des .json créés en BDD PostgreSQL à l'aide de python et de l'outil psycopg2.
+La BDD est divisée en 2 tables: "stations" (statique) et "dynamic_data" (dynamique).
+
 
 Pour planifier une tache récurrente on va utiliser crontab. Cf message SLACK de christophe -> pour Typiquement, planifier une tâche qui se lance à chaque heure à 15 minutes, ça s'écrit:
 15 * * * * 
