@@ -1,10 +1,13 @@
+"""Script qui insert les données d'un fichier JSON dans la table SQL dynamic_datas. 
+"""
+
 import psycopg2
 import json
 from datetime import datetime
 
 def update_dynamic_data_velou_bd():
     # Charger le fichier JSON
-    with open('data_dynamique.json', 'r') as f:
+    with open('dynamic_data.json', 'r') as f:
         data = json.load(f)  # data est maintenant un dictionnaire Python
 
 
@@ -18,7 +21,8 @@ def update_dynamic_data_velou_bd():
 
     # Créer un curseur pour exécuter des commandes SQL
     cur = conn.cursor()
-
+    
+    # Création de la table si elle n'existe pas déjà 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS dynamic_datas (
             number INT,
@@ -32,6 +36,7 @@ def update_dynamic_data_velou_bd():
 
     conn.commit()
 
+    #Insertion des données dans la BDD si et seulement si elles n'existent pas déjà 
     for record in data:
         ts = record['last_update']
         if ts is None:

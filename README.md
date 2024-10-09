@@ -6,9 +6,13 @@ Nous avont utilisé crontab pour récupérer les données dynamiques toutes les 
 Nous n'avons pas codé explicitement la transformation des données mais l'idée générale est expliquée dans le Compte Rendu
 
 
-## Explications des fichiers 
+## Extraction  
 La première étape de connection à l'API JCDecaux est codée dans le fichier *get_dynamic_data.py*. C'est l'extraction des données puis leur filtrage afin qu'elles correspondent au format de notre dictionnaire et enfin leur stockage dans un fichier JSON *dynamic_data.json*.
 
+## Loading 
+L'ajout de nos data dynamiques à la base de données se fait via le script *update_dynamic_data_velou_bd.py* . Ce script crée la table si elle n'existe pas déjà et vérifie avant l'insertion que chaque donnée n'est pas déjà existante afin de garantir l'unicité. 
+
+L'ajout de nos data statiques à la base de données se fait via le script *update_static_data_velou_bd.py* 
 
 
 
