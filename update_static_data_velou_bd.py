@@ -13,8 +13,8 @@ def update_static_data_velou_bd():
     conn = psycopg2.connect(
         host="localhost",
         database="",
-        user="postgres",
-        password="postgres"
+        user="",
+        password=""
     )
 
     # Créer un curseur pour exécuter des commandes SQL
@@ -36,7 +36,7 @@ def update_static_data_velou_bd():
 
     # Ajout des données à la base de données si elles n'y sont pas déjà 
     for record in data:
-        cur.execute("""SELECT COUNT(*) FROM stations WHERE number = %s """, (record['number']))
+        cur.execute("""SELECT COUNT(*) FROM stations WHERE number = %s """,(record['number'],) )
         exists = cur.fetchone()
 
         if (exists[0] == 0):

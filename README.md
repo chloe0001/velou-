@@ -12,18 +12,10 @@ La première étape de connection à l'API JCDecaux est codée dans le fichier *
 ## Loading 
 L'ajout de nos data dynamiques à la base de données se fait via le script *update_dynamic_data_velou_bd.py* . Ce script crée la table si elle n'existe pas déjà et vérifie avant l'insertion que chaque donnée n'est pas déjà existante afin de garantir l'unicité. 
 
-L'ajout de nos data statiques à la base de données se fait via le script *update_static_data_velou_bd.py* 
+L'ajout de nos data statiques à la base de données se fait via le script *update_static_data_velou_bd.py* . Ce script crée la table si elle n'existe pas déjà et vérifie avant l'insertion que chaque donnée n'est pas déjà existante afin de garantir l'unicité. 
 
+Enfin, le fichier *update.py* execute les fichiers d'extraction et de Loading. Ce script est appelé par crontab toutes les 15mins.
 
+LE NOM ET MDP POSTGRES SONT CODÉS EN DUR 
 
-BDD 
-
-Passage des .json créés en BDD PostgreSQL à l'aide de python et de l'outil psycopg2.
-La BDD est divisée en 2 tables: "stations" (statique) et "dynamic_data" (dynamique).
-
-
-Pour planifier une tache récurrente on va utiliser crontab. Cf message SLACK de christophe -> pour Typiquement, planifier une tâche qui se lance à chaque heure à 15 minutes, ça s'écrit:
-15 * * * * 
-
-ici : je vais dans conda puis velou. J'ai rendu mon script executable (avec la première ligne et le chmo +xà et maintenant je oeux faire crontab -e puis écrire : 15 * * * * python api_JCdecaux.py dans le vim qui s'ouvre. Puis apparemment faut accepter et la c'ezst bon ça executera toutes les 15min. 
-vérifier les taches : faire crontab -l  
+## Transforming
