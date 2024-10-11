@@ -1,7 +1,8 @@
 import psycopg2
 import pandas as pd
 import plotly.express as px
-import plotly.offline as pyo
+import plotly.graph_objects as go
+from datetime import datetime
 
 def demo():
 
@@ -22,19 +23,36 @@ def demo():
         password="postgres"
     )
     cur = conn.cursor()
-    # query = f"SELECT * FROM dynamic_datas WHERE number = {number};"
-    # data = pd.read_sql_query(query, conn)
-    cur.execute(f"""SELECT * FROM dynamic_datas WHERE number = {number};""")
+    cur.execute(f"""SELECT last_update, available_bikes FROM dynamic_datas WHERE number = {number};""")
     data = cur.fetchall()
     cur.close()
     conn.close()
 
-    X = [row[5] for row in data] 
-    Y = [row[3] for row in data] 
+    X = [datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S").hour for row in data] 
+    Y = [row[1] for row in data]
+    
 
-    # fig = px.scatter(data, x='last_update', y='available_bikes', title=f'Nombre de Vélouse à la station {number}')
-    fig = px.scatter(x=X, y=Y, title=f'Nombre de Vélouse à la station {number}')
-    fig.update_layout(xaxis_title='Date', yaxis_title='Nombre de vélos disponibles')
+    df = pd.DataFrame({'hour':X,'AB':Y})
+    df = df.groupby('hour')['AB'].mean().reset_index()
+    print(df)
+ 
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(
+        name='Affluence',
+        x=df['hour'],
+        y=round(df['AB']),
+        marker=dict(
+            color='lightblue',
+            line=dict(color='blue', width=1.5)
+        )
+    ))
+
+    fig.update_layout(
+        title=f"Graphique d'affluence de la station {number}",
+        template='plotly_white',
+    )
+
     fig.show()
 
     return None
