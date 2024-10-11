@@ -16,8 +16,6 @@ get_dynamic_data.get_dynamic_only_data('c0796b53b9a70237cb401518444ba6078ddc107b
 update_static_data_velou_bd.update_static_data_velou_bd() 
 update_dynamic_data_velou_bd.update_dynamic_data_velou_bd()
 
-
-
 with open("log_update.txt", "a") as log_file:
     log_file.write(f"Script exécuté à {datetime.now()}\n")
 

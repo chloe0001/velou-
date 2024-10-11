@@ -13,14 +13,13 @@ def update_static_data_velou_bd():
     conn = psycopg2.connect(
         host="localhost",
         database="",
-        user="",
-        password=""
+        user="postgres",
+        password="postgres"
     )
 
     # Créer un curseur pour exécuter des commandes SQL
     cur = conn.cursor()
-    conn.commit()
-
+    
     # Création de la table si elle n'existe pas déjà
     cur.execute("""
         CREATE TABLE IF NOT EXISTS stations (
