@@ -16,6 +16,12 @@ L'ajout de nos data statiques à la base de données se fait via le script *upda
 
 Enfin, le fichier *update.py* execute les fichiers d'extraction et de Loading. Ce script est appelé par crontab toutes les 15mins.
 
-LE NOM ET MDP POSTGRES SONT CODÉS EN DUR 
+LE NOM ET MDP PSQL A UTILISER SONT A RENSEIGNER DANS LE FICHIER *userVariables.py*
 
-## Transforming
+## Transforming - Demo
+
+Le script *demo.py* a été réalisé pour présenter un exemple simple pour l'utilisation et la transformation des quelques datas collectées.
+Pour pouvoir utiliser *demo.py* sans nécessairement récolter des datas au préalable le script *import_db.py* permet d'importer un dataset réaliser sur quatres jours du 13 au 17 octobre.
+
+
+
