@@ -1,2 +1,2 @@
-PSQL_USER_NAME = 'postgres'
-PSQL_USER_PASSWORD = 'postgres'
+PSQL_USER_NAME = 'gprost'
+PSQL_USER_PASSWORD = 'gabintel72'

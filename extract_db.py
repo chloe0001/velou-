@@ -2,7 +2,7 @@ import subprocess
 import userVariables as user
 
 subprocess.run([f"pg_dump",
-                f"--dbname=postgresql://{user.PSQL_USER_NAME}:{user.PSQL_USER_PASSWORD}@localhost:5432/postgres",
+                f"--dbname=postgresql://{user.PSQL_USER_NAME}:{user.PSQL_USER_PASSWORD}@localhost:5432/Velou",
                 f"--file=backup.sql",
                 "--inserts"])
 
