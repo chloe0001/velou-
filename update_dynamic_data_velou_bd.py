@@ -4,6 +4,7 @@
 import psycopg2
 import json
 from datetime import datetime
+import userVariables as user
 
 def update_dynamic_data_velou_bd():
     # Charger le fichier JSON
@@ -14,9 +15,9 @@ def update_dynamic_data_velou_bd():
     # Connexion à la base de données
     conn = psycopg2.connect(
         host="localhost",
-        database="",
-        user="postgres",
-        password="postgres"
+        database="Velou",
+        user=user.PSQL_USER_NAME,
+        password=user.PSQL_USER_PASSWORD
     )
 
     # Créer un curseur pour exécuter des commandes SQL

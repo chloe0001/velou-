@@ -2,6 +2,7 @@
 """
 import psycopg2
 import json
+import userVariables as user
 
 def update_static_data_velou_bd():
     # Charger le fichier JSON
@@ -12,15 +13,14 @@ def update_static_data_velou_bd():
     # Connexion à la base de données
     conn = psycopg2.connect(
         host="localhost",
-        database="",
-        user="",
-        password=""
+        database="Velou",
+        user=user.PSQL_USER_NAME,
+        password=user.PSQL_USER_PASSWORD
     )
 
     # Créer un curseur pour exécuter des commandes SQL
     cur = conn.cursor()
-    conn.commit()
-
+    
     # Création de la table si elle n'existe pas déjà
     cur.execute("""
         CREATE TABLE IF NOT EXISTS stations (
