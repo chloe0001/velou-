@@ -18,10 +18,10 @@ cur = conn.cursor()
 
 # Créer la base de données 'Velou'
 try:
-    cur.execute('CREATE DATABASE Velou;')
-    print("Base de données 'Velou' créée avec succès.")
+    cur.execute('CREATE DATABASE velou;')
+    print("Base de données 'velou' créée avec succès.")
 except psycopg2.errors.DuplicateDatabase:
-    print("La base de données 'Velou' existe déjà.")
+    print("La base de données 'velou' existe déjà.")
 
 # Fermer le curseur et la connexion
 cur.close()
@@ -29,7 +29,7 @@ conn.close()
 
 conn = psycopg2.connect(
     host="localhost",
-    database="Velou",
+    database="velou",
     user=user.PSQL_USER_NAME,
     password=user.PSQL_USER_PASSWORD
 )
