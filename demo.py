@@ -2,18 +2,17 @@ import dash
 from dash import dcc, html, Input, Output
 import psycopg2
 import pandas as pd
-import dash_leaflet as dl
-import dash_leaflet.express as dlx
 import plotly.express as px
+import userVariables as user
 
 # Charger les données des stations de vélos
 # Assurez-vous que votre fichier CSV contient les colonnes 'latitude', 'longitude', 'nom_station', et 'valeur'
 
 conn = psycopg2.connect(
     host="localhost",
-    database="",
-    user="postgres",
-    password="postgres"
+    database="velou",
+    user=user.PSQL_USER_NAME,
+    password=user.PSQL_USER_PASSWORD
 )
 cur = conn.cursor()
 cur.execute(f"""SELECT

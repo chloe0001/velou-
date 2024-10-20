@@ -15,7 +15,7 @@ def update_dynamic_data_velou_bd():
     # Connexion à la base de données
     conn = psycopg2.connect(
         host="localhost",
-        database="Velou",
+        database="velou",
         user=user.PSQL_USER_NAME,
         password=user.PSQL_USER_PASSWORD
     )
